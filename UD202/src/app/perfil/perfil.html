@@ -1,0 +1,96 @@
+<form>
+  <div class="mb-3 mt-3">
+    <label for="name" class="form-label">Name:</label>
+    <input
+      type="text"
+      [(ngModel)]="nameVal"
+      class="form-control"
+      id="name"
+      placeholder="Enter name"
+      name="name"
+    />
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="lastname" class="form-label">Last name:</label>
+    <input
+      [(ngModel)]="surnameVal"
+      type="text"
+      class="form-control"
+      id="lastname"
+      placeholder="Enter last name"
+      name="lastname"
+    />
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="city" class="form-label">City</label>
+    <input
+      [(ngModel)]="cityVal"
+      type="text"
+      class="form-control"
+      id="city"
+      placeholder="Enter the city where you live"
+      name="city"
+    />
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="age" class="form-label">Age:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="age"
+      placeholder="Enter age"
+      name="age"
+      [(ngModel)]="ageVal"
+    />
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="email" class="form-label">Email:</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="Enter email"
+      name="email"
+      [(ngModel)]="emailVal"
+    />
+  </div>
+
+  <button (click)="resetValues()" class="btn btn-warning">reset</button>
+</form>
+
+<div class="container mt-4">
+  <div class="row mb-2 align-items-center">
+    <div class="col-sm-3 fw-bold">Name:</div>
+    <div class="col-sm-7">{{ nameVal }}</div>
+    <div class="col-sm-2">
+      <span class="badge bg-info px-3 py-2">{{ nameVal.length }}</span>
+    </div>
+  </div>
+
+  <div class="row mb-2 align-items-center">
+    <div class="col-sm-3 fw-bold">Surname:</div>
+    <div class="col-sm-7">{{ surnameVal }}</div>
+    <div class="col-sm-2 text-center">
+      <span class="badge bg-info px-3 py-2">{{ surnameVal.length }}</span>
+    </div>
+  </div>
+
+
+  <div class="row mb-2 align-items-center">
+    <div class="col-sm-3 fw-bold">City:</div>
+    <div class="col-sm-7">{{ cityVal }}</div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-sm-3 fw-bold">Email:</div>
+    <div class="col-sm-9">{{ emailVal }}</div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-sm-3 fw-bold">Age:</div>
+    <div class="col-sm-9" [class]="ageVal >= 18 ? 'text-success' : 'text-danger'">{{ ageVal }}</div>
+  </div>
+</div>

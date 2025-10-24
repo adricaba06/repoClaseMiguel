@@ -1,0 +1,28 @@
+/*queria tocar un poco de css porq me estaba quedando horrible y aparte me viene bien para practicar*/
+/*hice una app parecida el año pasado y he aprovechado para reutilizar estilos*/
+.task-card {
+  border: none;
+  border-radius: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+}
+
+.task-body {
+  padding: 1.5rem;
+  border-radius: 1rem;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.done {
+  background-color: #15585394; 
+  color: white;
+}
+
+.pending {
+  background-color: #dbdbdb; 
+  color: #212529;
+}

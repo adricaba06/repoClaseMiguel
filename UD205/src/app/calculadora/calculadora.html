@@ -2,19 +2,17 @@
 
   <div class="card-body p-3 ">
     <!-- Pantalla -->
-    <input
-      type="text"
-      class="form-control form-control-lg text-end mb-3"
-      [ngModel]="display"
-      value="0"
-      readonly
-      aria-label="Pantalla de la calculadora"
-    />
+    <input type="text" class="form-control form-control-lg text-end mb-3" class="little-screen" [ngModel]="display" value="0" readonly
+      aria-label="Pantalla de la calculadora" />
+
+    <!-- Pantalla2 -->
+    <input type="text" class="form-control form-control-lg text-end mb-3"  [ngModel]="display2" value="0" readonly
+      aria-label="Pantalla de la calculadora" />
 
     <!-- teclafo -->
     <div class="row g-2">
       <div class="d-flex gap-2">
-        <!-- boton de clear y volver -->
+        
         <button class="btn btn-danger btn-lg flex-fill" (click)="clearDisplay()">C</button>
 
         <!--<button class="btn btn-danger btn-lg flex-fill" (click)="backSpace()">
@@ -34,27 +32,28 @@
       </div>
 
       <!-- numeritos -->
-      @for (num of numeros; track $index) { <!--al no ser 'objetos' he visto que se puede utilizar $index osea el indice en vez de un id o atributo-->
+      @for (num of numeros; track $index) {
+      <!--al no ser 'objetos' he visto que se puede utilizar $index osea el indice en vez de un id o atributo-->
       <div class="col-4">
-        <button (click)="numberToDisplay(num)" class="btn btn-light btn-lg w-100">{{ num }}</button>
+        <button (click)="numberToDisplay(num)" (click)="numberToDisplay2(num)" class="btn btn-light btn-lg w-100">{{ num }}</button>
       </div>
       }
 
       <!-- operadores-->
       <div class="col-6">
-        <button class="btn btn-light btn-lg w-100" (click)="operatorToDisplay('.')">.</button>
+        <button class="btn btn-light btn-lg w-100" (click)="operatorToDisplay('.')" >.</button>
       </div>
       <div class="col-3">
-        <button class="btn btn-info btn-lg w-100" (click)="operatorToDisplay('+')">+</button>
+        <button class="btn btn-info btn-lg w-100" (click)="operatorToDisplay('+')" (click)="control()">+</button>
       </div>
       <div class="col-3">
-        <button class="btn btn-info btn-lg w-100" (click)="operatorToDisplay('-')">−</button>
+        <button class="btn btn-info btn-lg w-100" (click)="operatorToDisplay('-')" (click)="control()">−</button>
       </div>
       <div class="col-3">
-        <button class="btn btn-info btn-lg w-100" (click)="operatorToDisplay('/')">÷</button>
+        <button class="btn btn-info btn-lg w-100" (click)="operatorToDisplay('/')" (click)="control()">÷</button>
       </div>
       <div class="col-3">
-        <button class="btn btn-info btn-lg w-100" (click)="operatorToDisplay('*')">×</button>
+        <button class="btn btn-info btn-lg w-100" (click)="operatorToDisplay('*')" (click)="control()">×</button>
       </div>
 
       <!-- = -->

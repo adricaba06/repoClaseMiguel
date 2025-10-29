@@ -72,17 +72,4 @@ export class Calculadora {
 
   }
 
-
-
-
-
-
-
-
-  
-  
-
-
-
-
 }

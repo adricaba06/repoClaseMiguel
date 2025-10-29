@@ -1,0 +1,19 @@
+<h1 class="text-center mb-4">Lista de personajes de Star Wars</h1>
+
+<div class="container">
+  <div class="row">
+    @for (starWarsCharacter of starWarsCharacters; track starWarsCharacter.name) {
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <app-star-wars-person
+        [name]="starWarsCharacter.name"
+        [height]="starWarsCharacter.height"
+        [mass]="starWarsCharacter.mass"
+        [gender]="starWarsCharacter.gender"
+        [homeworld]="starWarsCharacter.homeworld"
+        [hair_color]="starWarsCharacter.hair_color"
+        [picture]="starWarsCharacter.picture"
+      ></app-star-wars-person>
+    </div>
+    }
+  </div>
+</div>

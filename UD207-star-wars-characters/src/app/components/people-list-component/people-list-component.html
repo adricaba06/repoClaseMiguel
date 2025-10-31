@@ -1,0 +1,35 @@
+<div class="d-flex flex-wrap justify-content-center gap-4">
+  @for (character of peopleList; track character.name) {
+    <div class="card character-card text-light shadow-lg border-0 rounded-4 mt-5">
+      <div class="card-header bg-dark text-center border-bottom border-secondary">
+        <h5 class="mb-0 fw-bold">{{ character.name }}</h5>
+      </div>
+
+      <div class="card-body bg-gradient">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-transparent text-dark">
+            <strong>Altura:</strong> {{ character.height }} cm
+          </li>
+          <li class="list-group-item bg-transparent text-dark">
+            <strong>Peso:</strong> {{ character.mass }} kg
+          </li>
+          <li class="list-group-item bg-transparent text-dark">
+            <strong>Cabello:</strong> {{ character.hair_color }}
+          </li>
+          <li class="list-group-item bg-transparent text-dark">
+            <strong>Piel:</strong> {{ character.skin_color }}
+          </li>
+          <li class="list-group-item bg-transparent text-dark">
+            <strong>Ojos:</strong> {{ character.eye_color }}
+          </li>
+          <li class="list-group-item bg-transparent text-dark">
+            <strong>Nacimiento:</strong> {{ character.birth_year }}
+          </li>
+          <li class="list-group-item bg-transparent text-dark">
+            <strong>Género:</strong> {{ character.gender }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  }
+</div>

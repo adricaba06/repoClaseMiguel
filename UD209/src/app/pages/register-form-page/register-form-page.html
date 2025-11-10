@@ -1,0 +1,72 @@
+<div class="conatiner m-5 ps-4">
+  <form [formGroup]="registerFormGroup">
+    <div class="mb-3 mt-3">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Introduce tu nombre"
+        formControlName="nameFormControl">
+    </div>
+
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos:</label>
+      <input type="text" class="form-control" id="apellidos" placeholder="Introduce tus apellidos"
+        formControlName="surnameFormControl">
+    </div>
+
+    <div class="mb-3">
+      <label for="nif" class="form-label">NIF:</label>
+      <input type="text" class="form-control" id="nif" placeholder="Introduce tu NIF" formControlName="nifFormControl">
+    </div>
+
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono:</label>
+      <input type="tel" class="form-control" id="telefono" placeholder="Introduce tu teléfono"
+        formControlName="emailFormControl">
+    </div>
+
+    <div class="mb-3">
+      <label for="sexo" class="form-label">Sexo:</label>
+      <select class="form-select" id="sexo" formControlName="sexFormControl">
+        <option value="">Selecciona una opcion</option>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="conocido" class="form-label">¿Cómo concoes esta pagina?</label>
+      <select class="form-select" id="conocido" formControlName="infoFormControl">
+        <option value="">Selecciona una opción</option>
+        <option value="google">Buscando en Google</option>
+        <option value="amigo">A través de un amigo</option>
+        <option value="profesor">Por mi profesor</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Introduce tu email"
+        formControlName="emailFormControl">
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña:</label>
+      <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña"
+        formControlName="passwordFormControl">
+    </div>
+
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirmar contraseña:</label>
+      <input type="password" class="form-control" id="confirmPassword" placeholder="Confirma tu contraseña"
+        formControlName="confirmFormPassword">
+    </div>
+
+    <div class="form-check mb-3">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" formControlName="rememberMeFormPassword"> Recuérdame
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="printInfo()">Registrarse</button>
+  </form>
+
+</div>

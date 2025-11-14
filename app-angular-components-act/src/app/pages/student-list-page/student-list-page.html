@@ -1,0 +1,16 @@
+<div class="m-5">
+    <h2>{{size}}</h2>
+    @for(students of students; track students.id){
+    <app-student-list-component class="mb-2 me-2"
+    [valid]="students.id"
+    [valname]="students.name"
+    [valsurname]="students.surname"
+    [valnif]="students.nif"
+    [valage]="students.age"
+    [valcourse]="students.course"
+    ></app-student-list-component>
+
+}
+</div>
+
+

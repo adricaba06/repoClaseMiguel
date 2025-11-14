@@ -1,0 +1,34 @@
+<div class="coinatiner m-5">
+    <form>
+        <div class="mb-3">
+            <label for="nameStudent" class="form-label">Name</label>
+            <input type="text" [formControl]="name" class="form-control" id="nameStudent">
+
+        </div>
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="surname" [formControl]="surname" class="form-control" id="surname">
+        </div>
+        <div class="mb-3">
+            <label for="nif" class="form-label">NIF</label>
+            <input type="text" [formControl]="nif" class="form-control" id="nif">
+        </div>
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad</label>
+            <input type="number" [formControl]="age" class="form-control" id="edad">
+        </div>
+
+        <select id="course" [formControl]="course" class="form-select" aria-label="Default select example">
+            <option id="course" value="1 Dam"  >1DAM</option>
+            <option id="course" value="2 Dam" >2DAM</option>
+
+        </select>
+
+        <button type="submit" class="btn btn-primary" (click)="printValues()">Submit</button>
+    </form>
+
+
+
+</div>
+
+

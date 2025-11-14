@@ -34,9 +34,6 @@ export class StudentListPage{
       course: 'primaria'
 
     }
-
-
-
   ]
 
   size = this.students.length

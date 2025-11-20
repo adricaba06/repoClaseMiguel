@@ -1,0 +1,62 @@
+<!-- Navbar simple -->
+<nav class="navbar navbar-light bg-danger mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://fbi.cults3d.com/uploaders/20952150/illustration-file/3ff506ac-83d8-40ab-b474-3ebc2c727b7a/pngwing.com-2022-02-20T081900.534.png"
+        alt="Logo"
+        width="30"
+        height="30"
+        class="d-inline-block align-text-top"
+      />
+      MovieApp
+    </a>
+
+    <div class="d-flex align-items-center ms-auto">
+      <div class="me-3">
+        <label for="mediaTypeSelect" class="form-label mb-0">Tipo de contenido</label>
+        <select id="mediaTypeSelect" class="form-select" (change)="onMediaTypeSelected($event)">
+          <option value="movie" selected>Películas</option>
+          <option value="tv">Series</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="genreSelect" class="form-label mb-0">Selecciona un género</label>
+        <select id="genreSelect" class="form-select" (change)="onGenreSelected($event)">
+          <option value="" selected disabled>Seleccionar género...</option>
+          @for (genre of genreList; track genre.id) {
+            <option value="{{ genre.id }}">{{ genre.name }}</option>
+          } @empty {
+            <option disabled>No hay géneros disponibles</option>
+          }
+        </select>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <div class="row mt-4">
+    @for (movie of moviesOrTv; track movie.id) {
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+            class="card-img-top"
+            alt="{{ movie.title }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <p class="card-text">{{ movie.overview }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Reseñas: {{ movie.vote_average }} / 10</small>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <p>No hay contenido para este género.</p>
+    }
+  </div>
+</div>

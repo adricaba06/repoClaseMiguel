@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpInterceptorFn } from '@angular/common/http';
 
-import { tmdbApiKeyInterceptor } from './tmdb-api-key-interceptor';
+import { authInterceptorInterceptor } from './auth-interceptor';
 
-describe('tmdbApiKeyInterceptor', () => {
+describe('authInterceptorInterceptor', () => {
   const interceptor: HttpInterceptorFn = (req, next) => 
-    TestBed.runInInjectionContext(() => tmdbApiKeyInterceptor(req, next));
+    TestBed.runInInjectionContext(() => authInterceptorInterceptor(req, next));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

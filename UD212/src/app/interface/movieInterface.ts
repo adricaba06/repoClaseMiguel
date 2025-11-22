@@ -1,12 +1,11 @@
-export interface MovieDiscoverResponse {
-  genres: import("c:/Users/adric/OneDrive/Documentos/repoClaseMiguel/UD2TMDB/src/app/interface/genre-list.interface").Genre[];
+export interface MovieResponse {
   page: number;
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
+  results: MovieResult[];
+  total_pages?: number;
+  total_results?: number;
 }
 
-export interface Movie {
+export interface MovieResult {
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];

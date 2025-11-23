@@ -1,0 +1,31 @@
+<select
+  class="form-select m-4"
+  aria-label="Default select example"
+  [(ngModel)]="param"
+  (ngModelChange)="getFilteredMovieByParam()"
+  style="width: 200px"
+>
+  <option selected>Filtrado</option>
+  <option value="popular">Popular</option>
+  <option value="top_rated">Las más gustadas</option>
+  <option value="upcoming">Por extrenar</option>
+</select>
+<div class="d-flex flex-wrap">
+  @for(movie of movies; track movie.id){
+  <div class="card m-4" style="width: 18rem;">
+    <img
+      class="card-img-top"
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+      alt="Card image cap"
+    />
+    <!--Esto no lo acabop de entender-->
+    <div class="card-body">
+      <h2 class="card-title">{{ movie.title }}</h2>
+      <h5 class="card-title">{{ movie.original_title }}</h5>
+      <p class="card-text">{{ movie.overview }}</p>
+      <p class="card-text">{{ movie.release_date }}</p>
+      <button class="btn btn-secondary" (click)="navigateToDetails(movie)">Detalles</button>
+    </div>
+  </div>
+  }
+</div>

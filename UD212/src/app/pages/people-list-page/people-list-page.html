@@ -1,0 +1,11 @@
+<div class="d-flex flex-wrap">
+  @for (people of peopleList; track people.id){
+  <div class="card m-4" style="width: 18rem">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + people.profile_path" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{ people.name }}</h5>
+      <a href="#" class="btn btn-secondary" (click)="navigateToDetails(people.id)">Detalles</a>
+    </div>
+  </div>
+  }
+</div>

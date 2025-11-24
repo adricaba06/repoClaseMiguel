@@ -25,10 +25,7 @@ export class FilteredMoviesPage implements OnInit{
     this.ms.getFilteredMovie(this.param).subscribe(resp =>{
       this.movies = resp.results;
     });
-
   }
-
-
 
   navigateToDetails(movie: MovieResult){
     this.id = movie.id;

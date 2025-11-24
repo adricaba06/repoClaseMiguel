@@ -17,7 +17,6 @@ export class MovieDetailPage implements OnInit {
   constructor(private ms: DiscoverService){}
   private activatedRoute = inject(ActivatedRoute)
 
-  
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params =>{

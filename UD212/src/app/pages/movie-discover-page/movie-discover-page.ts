@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './movie-discover-page.html',
   styleUrl: './movie-discover-page.css',
 })
-export class MovieDiscoverPage implements OnInit{
+export class MovieDiscoverPage implements OnInit{ 
   genres: Genre[] = [];
   movies: MovieResult[] = [];
   id = 0

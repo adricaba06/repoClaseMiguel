@@ -1,0 +1,12 @@
+<select [(ngModel)]="color" class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="danger">red</option>
+  <option value="info">blue</option>
+  <option value="warning">amarillo</option>
+</select>
+
+
+<app-custom-progress-bar-component [value]="value" [color]="color"></app-custom-progress-bar-component>
+
+<button class="btn btn-primary" (click)="sumar()">+</button>
+<button class="btn btn-danger" (click)="restar()">-</button>

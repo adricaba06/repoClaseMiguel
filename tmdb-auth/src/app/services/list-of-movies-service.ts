@@ -1,0 +1,32 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ListOfMoviesResponse } from '../models/interfaces/list.interface';
+import { MoviesInListResponse } from '../models/interfaces/movie-List-details.interface';
+import { DeleteMovieFromListdto } from '../models/dto/delete-movie.dto';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ListOfMoviesService {
+
+  constructor(private http: HttpClient){}
+
+  public getUserListOfMovies(account_id: String): Observable<ListOfMoviesResponse>{
+    return this.http.get<ListOfMoviesResponse>(`https://api.themoviedb.org/3/account/${account_id}/lists`)
+  }
+
+  public getUserListOfMoviesDetails(list_id: number): Observable<MoviesInListResponse>{
+    return this.http.get<MoviesInListResponse>(`https://api.themoviedb.org/3/list/${list_id}`)
+  }
+
+  public deleteMovieFromList(list_id: number): Observable<MoviesInListResponse>{
+
+    body = {}
+
+    this.http.post<MoviesInListResponse>(`https://api.themoviedb.org/3/list/${list_id}/remove_item`,
+      body
+    )
+  }
+  
+}

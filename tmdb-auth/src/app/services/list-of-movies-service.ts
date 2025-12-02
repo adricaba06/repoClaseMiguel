@@ -20,13 +20,8 @@ export class ListOfMoviesService {
     return this.http.get<MoviesInListResponse>(`https://api.themoviedb.org/3/list/${list_id}`)
   }
 
-  public deleteMovieFromList(list_id: number): Observable<MoviesInListResponse>{
-
-    body = {}
-
-    this.http.post<MoviesInListResponse>(`https://api.themoviedb.org/3/list/${list_id}/remove_item`,
-      body
-    )
+  public deleteMovieFromList(list_id: number, dto: DeleteMovieFromListdto ): Observable<MoviesInListResponse>{
+    return this.http.post<MoviesInListResponse>(`https://api.themoviedb.org/3/list/${list_id}/remove_item`, dto);
   }
   
 }

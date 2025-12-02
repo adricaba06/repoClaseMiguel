@@ -26,6 +26,7 @@
                 <p class="card-text">{{movie.title}}</p>
                 <p class="card-text">{{movie.release_date}}</p>
             </div>
+            <button class="btn btn-danger mb-3" (click)="removeMovieFromList(movie.id)">Eliminar de la lista</button>
         </div>
         }
     </div>

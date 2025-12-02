@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListOfMoviesService } from '../../services/list-of-movies-service';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesInList } from '../../models/interfaces/movie-List-details.interface';
+import { DeleteMovieFromListdto } from '../../models/dto/delete-movie.dto';
 
 @Component({
   selector: 'app-movie-list-details',
@@ -31,6 +32,13 @@ export class MovieListDetails  implements OnInit{
     this.listOfMoviesService.getUserListOfMoviesDetails(this.listId).subscribe((resp) =>{
       this.movies = resp.items
     })
+  }
+
+  public removeMovieFromList(movie_id: number){
+    console.log(movie_id)
+    var dto = new DeleteMovieFromListdto(movie_id)
+    this.listOfMoviesService.deleteMovieFromList(this.listId, dto);
+    console.log(this.listId)
   }
 
   

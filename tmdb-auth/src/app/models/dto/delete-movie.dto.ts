@@ -1,7 +1,10 @@
 export class DeleteMovieFromListdto {
-    media_id!: number;
+    media_id: number;
+   
+    constructor(media_id: number){
+        this.media_id = media_id;
+    }
 
-    public DeleteMovieFromListdto(){}
 }
 
 // https://developer.themoviedb.org/reference/list-remove-movie

@@ -14,4 +14,9 @@ export class DiscoverService {
   public getMovieList(selectedGenre: string): Observable<DiscoverMovieResponse> {
     return this.http.get<DiscoverMovieResponse>(`${API_BASE_URL}/movie?with_genres=${selectedGenre}`);
   }
+
+  public getPopularMovies(): Observable<DiscoverMovieResponse>{
+    return this.http.get<DiscoverMovieResponse>(`https://api.themoviedb.org/3/movie/popular`)
+  }
+
 }

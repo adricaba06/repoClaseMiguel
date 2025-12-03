@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ListOfMoviesResponse } from '../models/interfaces/list.interface';
 import { MoviesInListResponse } from '../models/interfaces/movie-List-details.interface';
 import { DeleteMovieFromListdto } from '../models/dto/delete-movie.dto';
+import { AddMovieDto } from '../models/dto/add-movie.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,14 @@ export class ListOfMoviesService {
 
   public deleteMovieFromList(list_id: number, dto: DeleteMovieFromListdto ): Observable<MoviesInListResponse>{
     return this.http.post<MoviesInListResponse>(`https://api.themoviedb.org/3/list/${list_id}/remove_item`, dto);
+  }
+
+  public deleteList(list_id: number): Observable<ListOfMoviesResponse>{
+    return this.http.delete<ListOfMoviesResponse>(`https://api.themoviedb.org/3/list/${list_id}`);
+  }
+
+  public addMovieToList(list_id: number, dto: AddMovieDto): Observable<ListOfMoviesResponse>{
+    return this.http.post<ListOfMoviesResponse>(`https://api.themoviedb.org/3/list/${list_id}/add_item`, dto);
   }
   
 }

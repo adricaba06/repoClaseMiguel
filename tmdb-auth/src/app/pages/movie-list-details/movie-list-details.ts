@@ -33,11 +33,14 @@ export class MovieListDetails  implements OnInit{
       this.movies = resp.items
     })
   }
+  
 
   public removeMovieFromList(movie_id: number){
     console.log(movie_id)
     var dto = new DeleteMovieFromListdto(movie_id)
-    this.listOfMoviesService.deleteMovieFromList(this.listId, dto);
+    this.listOfMoviesService.deleteMovieFromList(this.listId, dto).subscribe((resp) =>{
+      console.log("se ha borrao la pelicula")
+    })
     console.log(this.listId)
   }
 

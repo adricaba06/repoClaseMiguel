@@ -5,6 +5,4 @@ export interface Provincia {
   CCAA: string;
 }
 
-export interface ProvinciaResponse {
-  Provincia: Provincia[];
-}
+export type ProvinciaResponse = Provincia[];

@@ -9,12 +9,10 @@ import { Provincia, ProvinciaResponse } from '../interface/Provincia.interface';
   providedIn: 'root'
 })
 export class ProvinciasService {
-  private baseUrl = 'https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/Listados/ProvinciasPorComunidad/';
 
   constructor(private http: HttpClient) {}
 
-  public getProvinciasByCCAA(IDCCAA: string): Observable<Provincia[]> {
-    const url = `${this.baseUrl}${IDCCAA}`;
-    return this.http.get<Provincia[]>(url);
+  public getProvinciasByCCAA(IDCCAA: string): Observable<ProvinciaResponse> {
+    return this.http.get<ProvinciaResponse>(`https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/Listados/ProvinciasPorComunidad/${IDCCAA}`)
   }
 }

@@ -40,7 +40,7 @@ export class HomePage implements OnInit {
   getAllCominidadesAutonomas() {
     this.comuAutoService.getAllComunidadesAutonomas().subscribe((resp) => {
       console.log(resp);
-      this.comunidadesdAutonomas = resp.ComunidadAutonoma;
+      this.comunidadesdAutonomas = resp;
     });
   }
 
@@ -68,7 +68,7 @@ export class HomePage implements OnInit {
 
   getAllMunicipios(){
     this.municipioService.getMunicipiosPorProvincia(this.provinciaId).subscribe((resp) =>{
-      this.municipios = resp.Municipio;
+      this.municipios = resp;
     })
   }
 

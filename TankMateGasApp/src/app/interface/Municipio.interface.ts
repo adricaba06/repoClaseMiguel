@@ -1,3 +1,7 @@
+export type MunicipioResponse = Municipio[];
+
+
+
 export interface Municipio {
   IDMunicipio: string;
   IDProvincia: string;
@@ -7,6 +11,3 @@ export interface Municipio {
   CCAA: string;
 }
 
-export interface MunicipioResponse {
-  Municipio: Municipio[];
-}

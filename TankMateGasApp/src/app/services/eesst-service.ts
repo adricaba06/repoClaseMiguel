@@ -59,9 +59,9 @@ export class EstacionesService {
         }),
         catchError(err => {
           if (err.status === 404) {
-            return of([]); // no hay estaciones, devolver array vacío
+            return of([]); 
           }
-          return throwError(() => err); // otros errores
+          return throwError(() => err); 
         })
       );
   }

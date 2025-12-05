@@ -1,0 +1,132 @@
+<nav class="navbar navbar-dark bg-danger shadow-sm py-3">
+  <div class="container-fluid d-flex align-items-center">
+    <a class="navbar-brand d-flex align-items-center me-3" href="#">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/638/638286.png"
+        alt="Logo"
+        width="40"
+        height="40"
+        class="d-inline-block align-text-top me-2"
+      />
+      <span class="fw-bold fs-4">TankMate</span>
+    </a>
+
+    <!-- Contenedor de dropdowns más compacto -->
+    <div class="d-flex gap-2 ms-auto">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-light btn-sm" id="dropdownComunidad" ngbDropdownToggle>
+          Selecciona Comunidad
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownComunidad">
+          @for (comuAuto of comunidadesdAutonomas; track comuAuto.IDCCAA) {
+          <button ngbDropdownItem (click)="getId(comuAuto.IDCCAA)">{{ comuAuto.CCAA }}</button>
+          }
+        </div>
+      </div>
+
+      <div ngbDropdown class="d-inline-block">
+        <button
+          class="btn btn-outline-light btn-sm"
+          id="dropdownProvincia"
+          ngbDropdownToggle
+          [disabled]="!comunidadId"
+        >
+          Selecciona Provincia
+        </button>
+
+        <div ngbDropdownMenu aria-labelledby="dropdownProvincia">
+          @for (provincia of provincias; track provincia.IDPovincia) {
+          <button ngbDropdownItem (click)="getProvinciaId(provincia.IDPovincia)">
+            {{ provincia.Provincia }}
+          </button>
+          }
+        </div>
+      </div>
+
+      <div ngbDropdown class="d-inline-block">
+        <button
+          class="btn btn-outline-light btn-sm"
+          id="dropdownMunicipio"
+          ngbDropdownToggle
+          [disabled]="!provinciaId"
+        >
+          Selecciona municipio
+        </button>
+
+        <div ngbDropdownMenu aria-labelledby="dropdownMunicipio">
+          @for (municipio of municipios; track municipio.IDMunicipio) {
+          <button ngbDropdownItem (click)="getMunicipioId(municipio.IDMunicipio)">
+            {{ municipio.Municipio }}
+          </button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+@if(municipioId == null || municipioId == "") {
+<p>No hay estaciones para mostrar</p>
+} @else {
+<main>
+  <div class="d-flex flex-wrap gap-3">
+    @for (estacion of estaciones; track estacion.ideess) {
+    <div class="card shadow-sm m-3" style="flex: 0 0 300px">
+      <!-- Header -->
+      <div class="card-header bg-secondary text-white">
+        <h5 class="card-title mb-1">{{ estacion.rotulo || 'Sin rótulo' }}</h5>
+        <small>{{ estacion.tipoVenta || 'Tipo de venta no disponible' }}</small>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Ubicación</h6>
+        <p class="mb-1">
+          {{ estacion.direccion }}, {{ estacion.municipio || '' }}, {{ estacion.provincia || '' }},
+          {{ estacion.cp || '' }}
+        </p>
+        <p class="mb-1">Lat: {{ estacion.latitud || '-' }}, Lon: {{ estacion.longitud || '-' }}</p>
+        <p class="mb-3">Margen: {{ estacion.margen || '-' }}</p>
+
+        <h6 class="card-subtitle mb-2 text-muted">Horario</h6>
+        <p class="mb-3">{{ estacion.horario || 'No disponible' }}</p>
+
+        <h6 class="card-subtitle mb-2 text-muted">Precios</h6>
+        <div class="row g-2 mb-3">
+          <div class="col-6">
+            <small>AdBlue: {{ estacion.precioAdblue || '-' }}</small>
+          </div>
+          <div class="col-6">
+            <small>Amoniaco: {{ estacion.precioAmoniaco || '-' }}</small>
+          </div>
+          <div class="col-6">
+            <small>Biodiesel: {{ estacion.precioBiodiesel || '-' }}</small>
+          </div>
+          <div class="col-6">
+            <small>Bioetanol: {{ estacion.precioBioetanol || '-' }}</small>
+          </div>
+          <div class="col-6">
+            <small>Gasoleo A: {{ estacion.precioGasoleoA || '-' }}</small>
+          </div>
+          <div class="col-6">
+            <small>Gasoleo B: {{ estacion.precioGasoleoB || '-' }}</small>
+          </div>
+          <div class="col-6">
+            <small>Gasolina 95 E5: {{ estacion.precioGasolina95E5 || '-' }}</small>
+          </div>
+          <div class="col-6">
+            <small>Gasolina 98 E5: {{ estacion.precioGasolina98E5 || '-' }}</small>
+          </div>
+        </div>
+
+        <h6 class="card-subtitle mb-2 text-muted">Otros</h6>
+        <p class="mb-1">ID Estación: {{ estacion.ideess || '-' }}</p>
+        <p class="mb-1">% BioEtanol: {{ estacion.porcentajeBioEtanol || '-' }}</p>
+        <p class="mb-0">% Éster metílico: {{ estacion.porcentajeEster || '-' }}</p>
+      </div>
+    </div>
+    }
+  </div>
+</main>
+
+}
